@@ -47,7 +47,7 @@ INSTALLED_APPS = [
     # Third-party
     'debug_toolbar',
     'django_extensions',
-    # 'registration',
+    'registration',
 
     # Project-specific
     # 'users',
@@ -132,6 +132,7 @@ STATICFILES_DIRS = [
 # Custom user model
 
 AUTH_USER_MODEL = 'core.User'
+LOGIN_REDIRECT_URL = '/'
 
 # Debug toolbar config
 
@@ -140,3 +141,7 @@ INTERNAL_IPS = [
     '127.0.0.1',
     # ...
 ]
+# Configure Django App for Heroku.
+import django_heroku
+django_heroku.settings(locals())
+del DATABASES['default']['OPTIONS']['sslmode']

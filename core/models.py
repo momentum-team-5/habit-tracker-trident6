@@ -9,7 +9,7 @@ class User(AbstractUser):
 
 
 class Habit(models.Model):
-    habit = models.ForeignKey(to=User, on_delete=models.CASCADE, related_name='habits')
+    user = models.ForeignKey(to=User, on_delete=models.CASCADE, related_name='habits')
     name = models.CharField(max_length=255)
     target = models.IntegerField(blank=True, null=True)
 

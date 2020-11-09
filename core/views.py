@@ -10,18 +10,18 @@ def habit_detail(request, pk):
     habit = get_object_or_404(Habit, id=pk)
     return render(request, "core/habit_detail.html", {"habit": habit})
 
-# def habit_create(request):
-#     if request.method == "GET":
-#         form = HabitForm()
-#     else:
-#         form = HabitForm(data=request.POST)
-#         if form.is_valid():
-#             habit = form.save(commit=False)
-#             # check ckeck author or user
-#             habit.author = request.user 
-#             habit.save()
-#             return redirect(to="habit_list")
-#     return render(request, "core/habit_create.html", {"form": form})   
+def habit_create(request):
+    if request.method == "GET":
+        form = HabitForm()
+    else:
+        form = HabitForm(data=request.POST)
+        if form.is_valid():
+            habit = form.save(commit=False)
+            # check ckeck author or user
+            habit.user = request.user 
+            habit.save()
+            return redirect(to="habit_list")
+    return render(request, "core/habit_create.html", {"form": form})   
 
 
 # def habit_update(request, pk):
