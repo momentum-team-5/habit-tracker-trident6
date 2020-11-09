@@ -1,0 +1,30 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <title>Habit List</title>
+</head>
+<body>
+    {% comment %} <p class="user"> active user: {{ user.username }}</p> {% endcomment %}
+    <header class="menu">
+        <a href="{% url 'habit_list' %}">List of Habbits</a>
+        {% comment %} {% if request.user.is_authenticated %}
+        <a href="{% url 'habit_create' %}">Create Habbit</a>
+        <a href="{% url 'habit_search' %}">Search Habits</a>
+        <a href="/accounts/logout/">logout</a>
+        {% else %}
+        <a href="/accounts/login/">login</a>
+        <a href="/accounts/register/">create account</a>
+        {%endif%} {% endcomment %}
+
+    </header>
+
+<body>
+    {% block content %}
+    {% endblock %}
+</body>
+</html>

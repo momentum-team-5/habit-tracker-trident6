@@ -1,0 +1,16 @@
+{% extends "base.html" %} 
+{% block content %}
+<h2>List of Habits</h2>
+
+<div class="flex-container">
+    {% for habit in habits %}
+    <div class="flex-item">
+        <p class="habit_name">{{ habit.name }}</p>
+        <pre class="habit_target"> {{ habit.target }}</pre>
+        <p><a href="{% url 'habit_detail' pk=habit.pk %}">More Information</a></p>
+    </div>
+    {% endfor %}
+</div>
+{# put link to create new habit page here #} 
+
+{% endblock %}

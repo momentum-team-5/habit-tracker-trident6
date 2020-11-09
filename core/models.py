@@ -9,12 +9,13 @@ class User(AbstractUser):
 
 
 class Habit(models.Model):
+    habit = models.ForeignKey(to=User, on_delete=models.CASCADE, related_name='habits')
     name = models.CharField(max_length=255)
     target = models.IntegerField(blank=True, null=True)
 
 
-class record(models.Model):
-    habit = models.ForeignKey(Habit, on_delete=models.CASCADE)
+class Record(models.Model):
+    habit = models.ForeignKey(to=Habit, on_delete=models.CASCADE, related_name='records')
     text = models.TextField(blank=True)
     completed = models.IntegerField(blank=True, null=True)
     entry_date = models.DateField(auto_now=True)

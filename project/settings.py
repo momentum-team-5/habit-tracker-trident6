@@ -47,8 +47,10 @@ INSTALLED_APPS = [
     # Third-party
     'debug_toolbar',
     'django_extensions',
+    # 'registration',
 
     # Project-specific
+    # 'users',
     'core',
 ]
 
