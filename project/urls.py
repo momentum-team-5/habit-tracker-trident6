@@ -24,9 +24,8 @@ urlpatterns = [
     path('', habit_views.habit_list, name="habit_list"),
     path('habit_detail/<int:pk>/', habit_views.habit_detail, name="habit_detail"),
     path('create/', habit_views.habit_create, name='habit_create'),
-#     # path('delete/<int:pk>/', habit, name='habit'),
-#     path('update/<int:pk>/', habit_views.habit_update, name='habit_update'),
-#     # path('search/', habit name='search_snippet'),
+    path('habit/<int:pk>/delete/', habit_views.habit_delete, name='habit_delete'),
+    path('update/<int:pk>/', habit_views.habit_update, name='habit_update'),
 ]
 
 if settings.DEBUG:

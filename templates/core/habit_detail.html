@@ -1,1 +1,11 @@
-<h1>this is where the datails would be</h1>
+{% extends 'base.html' %}
+
+{%block content%}
+<h4>{{habit.name}}</h4>
+<p>{{habit.target}}</p>
+{% if request.user.is_authenticated and habit.user == request.user%}
+<button><a href = "{% url 'habit_update' pk=habit.pk %}">Habit Update</a></button>
+{% comment %} <p><a href = "{% url 'habit_delete' pk=habit.pk %}">Habit Delete</a></p> {% endcomment %}
+{%endif%}
+
+{%endblock%}

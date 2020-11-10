@@ -24,24 +24,36 @@ def habit_create(request):
     return render(request, "core/habit_create.html", {"form": form})   
 
 
-# def habit_update(request, pk):
-#     habit = get_object_or_404(request.user.habits.all(), pk=pk)
+def habit_update(request, pk):
+    habit = get_object_or_404(request.user.habits.all(), pk=pk)
 
-#     if request.method == "GET":
-#         form = HabitForm(instance=habit)
-#     else:
-#         form = HabitForm(data=request.POST, instance=habit)
+    if request.method == "GET":
+        form = HabitForm(instance=habit)
+    else:
+        form = HabitForm(data=request.POST, instance=habit)
 
-#         if form.is_valid():
-#             form.save()
+        if form.is_valid():
+            form.save()
 
-#             return redirect(to="habit_list")
+            return redirect(to="habit_list")
 
-#         else:
-#             #error(request, "Your updates didn't work :(")
-#             pass
+        else:
+            #error(request, "Your updates didn't work :(")
+            pass
 
-#     return render(request, "core/habit_update.html", {"form": form})
+    return render(request, "core/habit_update.html", {"form": form})
+
+def habit_delete(request, pk):
+    habit = get_object_or_404(request.user.habits.all(), pk=pk)
+    habit.delete()
+    #success message
+
+    return redirect(to="habit_list")
+
+
+
+
+
 
 
 # habit_list - habits/, root path ("")
