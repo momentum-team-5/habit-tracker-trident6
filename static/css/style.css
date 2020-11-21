@@ -4,11 +4,6 @@
     margin: .2rem;
 }
 
-
-/* a {
-    color: black;
-} */
-
 header {
     display: flex;
     background-color: lightblue;
@@ -27,12 +22,34 @@ header {
 }
 
 .more-info,
-.snippet-title {
+.habit_name,
+.habit_target,
+.habit_metric {
+    font-size: 20px;
+    font-weight: bold;
     padding-top: 1rem;
     padding-left: 1rem;
     padding-bottom: 1.5rem;
 }
 
-.snippet-body {
+.habbit-body {
     padding-left: 1rem;
+}
+
+button {
+    background-color: lightblue;
+    border-radius: 25%;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.welcome_header {
+    background-color: lightcyan;
+    text-align: center;
 }

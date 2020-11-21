@@ -1,11 +1,15 @@
 {% extends 'base.html' %}
 
 {%block content%}
-<h4>{{habit.name}}</h4>
-<p>{{habit.target}}</p>
+<p class="habit_name">Habit Name:  {{habit.name}}</>
+<p class="habit_target">Habit Target:  {{habit.target}}</p>
+<p class="habit_target">Habit Metric:  {{habit.metric}}</p>
 {% if request.user.is_authenticated and habit.user == request.user%}
 <button><a href = "{% url 'habit_update' pk=habit.pk %}">Habit Update</a></button>
-{% comment %} <p><a href = "{% url 'habit_delete' pk=habit.pk %}">Habit Delete</a></p> {% endcomment %}
+<button><a href = "{% url 'habit_delete' pk=habit.pk %}">Habit Delete</a></button>
 {%endif%}
+
+
+
 
 {%endblock%}

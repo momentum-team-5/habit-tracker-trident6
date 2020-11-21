@@ -48,10 +48,12 @@ INSTALLED_APPS = [
     'debug_toolbar',
     'django_extensions',
     'registration',
+    'rest_framework',
 
     # Project-specific
     # 'users',
     'core',
+    'api',
 ]
 
 MIDDLEWARE = [
@@ -132,7 +134,7 @@ STATICFILES_DIRS = [
 # Custom user model
 
 AUTH_USER_MODEL = 'core.User'
-LOGIN_REDIRECT_URL = '/'
+LOGIN_REDIRECT_URL = '/habit_list/'
 
 # Debug toolbar config
 

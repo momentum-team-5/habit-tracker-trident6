@@ -1,5 +1,5 @@
 from django import forms
-from core.models import Habit
+from core.models import Habit, Record
 
 
 class HabitForm(forms.ModelForm):
@@ -7,5 +7,15 @@ class HabitForm(forms.ModelForm):
         model = Habit
         fields = [
             'name',
+            'metric',
             'target',
+        ]
+
+
+class RecordForm(forms.ModelForm):
+    class Meta:
+        model = Record
+        fields = [
+            'text',
+            'completed',
         ]

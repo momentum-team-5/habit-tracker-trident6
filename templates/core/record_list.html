@@ -1,0 +1,21 @@
+
+record list goes here
+
+{% comment %} {% extends "base.html" %} 
+{% block content %}
+<h2>List of Records</h2>
+
+<div class="flex-container">
+    {% for record in records %}
+    <div class="flex-item">
+        <p class="record_text">{{ record.text }}</p>
+        <p class="record_completed"> {{ record.completed }}</p>
+        {% comment %} <p class="record_text">{{ record.text }}</p> {% endcomment %}
+        <p><a href="{% url 'record_detail' pk=record.pk %}">More Information</a></p>
+        {% comment %} <p><a href="{% url 'record_delete' pk=record.pk %}">Delete</a></p> {% endcomment %}
+    </div>
+    {% endfor %}
+</div>
+{# put link to create new record page here #} 
+
+{% endblock %} {% endcomment %}

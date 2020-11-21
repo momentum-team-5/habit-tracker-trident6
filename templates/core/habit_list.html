@@ -5,13 +5,21 @@
 <div class="flex-container">
     {% for habit in habits %}
     <div class="flex-item">
-        <p class="habit_name">{{ habit.name }}</p>
-        <pre class="habit_target"> {{ habit.target }}</pre>
-        <p><a href="{% url 'habit_detail' pk=habit.pk %}">More Information</a></p>
-        <p><a href="{% url 'habit_delete' pk=habit.pk %}">Delete</a></p>
+        <p class="habit_name">{{ habit.name }} {{ habit.target }} {{ habit.metric }}</p>
+        {% for record in records %}
+        <p> {{record.text}} </p>
+        <p> {{record.completed}} </p>
+        <p> {{record.date}} </p>
+        {% endfor %}
+
+        <p> Habit Records go here </p>
+        <p> Habit Records go here </p>
+        <p> Habit Records go here </p>
+        
+        <button><a href="{% url 'habit_detail' pk=habit.pk %}">More Information</a></button>
+        <button><a href="{% url 'habit_delete' pk=habit.pk %}">Delete</a></button>
     </div>
     {% endfor %}
 </div>
-{# put link to create new habit page here #} 
 
 {% endblock %}
