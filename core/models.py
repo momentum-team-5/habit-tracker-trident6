@@ -19,10 +19,5 @@ class Record(models.Model):
     completed = models.IntegerField(blank=True, null=True)
     date = models.DateField(auto_now=True)
 
-    class Meta:
-        constraints = [
-            models.UniqueConstraint(fields=["habit", "date"], name="unique_record")
-        ]
-
     def __str__(self):
         return f"{self.habit} {self.date}"
